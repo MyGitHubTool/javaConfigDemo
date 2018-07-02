@@ -9,8 +9,8 @@ public interface UserDao {
     /**
      * 查询用户信息
      *
-     * @param userId
+     * @param id
      * @return
      */
-    UserDTO findUserInfoByUserId(String userId);
+    UserDTO findUserInfoId(Long id);
 }

@@ -1,2 +1,1 @@
-# javaConfigDemo
-# javaConfigDemo
+# 纯java的形式来配置SSM 项目

@@ -25,11 +25,11 @@ public class testController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("findUserInfoByUserId/{userId}")
+    @RequestMapping("findUserInfoByUserId/{id}")
     @ResponseBody
-    public List<UserDTO> findUserInfoByUserId(@PathVariable String userId) {
+    public List<UserDTO> findUserInfoByUserId(@PathVariable Long id) {
         List<UserDTO> list = new ArrayList<>();
-        list.add(userService.findUserInfoByUserId(userId));
+        list.add(userService.findUserInfoId(id));
         return list;
     }
 

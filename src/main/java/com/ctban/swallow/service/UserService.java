@@ -10,8 +10,8 @@ public interface UserService {
     /**
      * 查询用户的信息
      *
-     * @param userId
+     * @param id
      * @return
      */
-    UserDTO findUserInfoByUserId(String userId);
+    UserDTO findUserInfoId(Long id);
 }
