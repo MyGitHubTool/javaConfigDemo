@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctban.swallow.mapper.UserDao">
+    <resultMap id="UserMap" type="com.ctban.swallow.dto.UserDTO">
+        <id column="user_id" property="userId"/>
+        <result column="login_account" property="loginAccount"/>
+        <result column="login_pwd" property="loginPwd"/>
+        <result column="user_status" property="userStatus"/>
+        <result column="come_from" property="comeFrom"/>
+        <result column="user_ip" property="userIp"/>
+        <result column="is_member" property="isMember"/>
+        <result column="is_interior" property="isInterior"/>
+        <result column="visibility" property="visibility"/>
+        <result column="app" property="app"/>
+        <result column="sap" property="sap"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="lock_time" property="lockTime"/>
+        <result column="user_name" property="userName"/>
+    </resultMap>
+
+    <select id="findUserInfoByUserId" resultType="java.lang.String" resultMap="UserMap">
+         SELECT * FROM  t_user where user_id = #{userId}
+    </select>
+
+
+</mapper>
