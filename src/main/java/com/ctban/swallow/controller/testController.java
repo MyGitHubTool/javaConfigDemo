@@ -25,7 +25,7 @@ public class testController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("findUserInfoByUserId/{id}")
+    @RequestMapping("/findUserInfoByUserId/{id}")
     @ResponseBody
     public List<UserDTO> findUserInfoByUserId(@PathVariable Long id) {
         List<UserDTO> list = new ArrayList<>();

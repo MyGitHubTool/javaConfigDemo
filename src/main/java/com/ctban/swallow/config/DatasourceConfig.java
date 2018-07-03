@@ -1,6 +1,8 @@
 package com.ctban.swallow.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,8 @@ import javax.sql.DataSource;
 @EnableTransactionManagement(proxyTargetClass = true)
 public class DatasourceConfig {
 
+    Logger logger = LoggerFactory.getLogger(DatasourceConfig.class);
+
     @Autowired
     Environment ev;
 
@@ -25,6 +29,7 @@ public class DatasourceConfig {
     public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(ev.getProperty("jdbc.url"));
+        logger.info("配置数据库");
         dataSource.setUsername(ev.getProperty("jdbc.username"));
         dataSource.setPassword(ev.getProperty("jdbc.password"));
         dataSource.setDriverClassName(ev.getProperty("jdbc.driver.class.name"));

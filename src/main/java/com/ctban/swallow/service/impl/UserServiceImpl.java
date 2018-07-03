@@ -1,5 +1,6 @@
 package com.ctban.swallow.service.impl;
 
+import com.ctban.swallow.annotation.UserPrivilegeAnnotation;
 import com.ctban.swallow.dto.UserDTO;
 import com.ctban.swallow.mapper.UserDao;
 import com.ctban.swallow.service.UserService;
@@ -15,9 +16,10 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public UserDTO findUserInfoId(Long id){
-        {
-            return userDao.findUserInfoId(id);
-        }
+    @UserPrivilegeAnnotation
+    public UserDTO findUserInfoId(Long id) {
+
+       return userDao.findUserInfoId(id);
+
     }
 }

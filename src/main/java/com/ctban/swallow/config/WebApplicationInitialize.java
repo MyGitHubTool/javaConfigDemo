@@ -1,13 +1,15 @@
 package com.ctban.swallow.config;
 
+import com.ctban.swallow.filter.TestFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * @author GuoJie 2018/7/2 12:23
  *         程序入口 初始化 dispatcherServlet 启动 ContextLoaderListener
  */
 public class WebApplicationInitialize extends AbstractAnnotationConfigDispatcherServletInitializer {
-
     /**
      * 配置
      */
@@ -30,5 +32,15 @@ public class WebApplicationInitialize extends AbstractAnnotationConfigDispatcher
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    /**
+     * 配置过滤器
+     *
+     * @return
+     */
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new TestFilter()};
     }
 }
