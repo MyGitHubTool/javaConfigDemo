@@ -4,6 +4,9 @@ import com.ctban.swallow.filter.TestFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 /**
  * @author GuoJie 2018/7/2 12:23
@@ -42,5 +45,13 @@ public class WebApplicationInitialize extends AbstractAnnotationConfigDispatcher
     @Override
     protected Filter[] getServletFilters() {
         return new Filter[]{new TestFilter()};
+    }
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        super.onStartup(servletContext);
+        FilterRegistration.Dynamic testFilter = servletContext.addFilter("testFilter", TestFilter.class);
+        testFilter.addMappingForUrlPatterns(null,false,"/**");
+
     }
 }
